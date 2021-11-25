@@ -44,7 +44,6 @@ export class UpdatePostComponent implements OnInit {
       date: date
     }
     let res=this.postService.updatePost(this.param.id, post);
-    console.log(post, res);
     this.router.navigate(['/listposts'])
   }
 }
