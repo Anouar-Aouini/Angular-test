@@ -12,6 +12,7 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <p>{{post.description}}</p>
+    <p>Date :{{post.date | date}}</p>
     <button class="btn btn-success" (click)="updatePost(i,post)">Modify</button>
     <button class="btn btn-danger" (click)="onDeletePost(i)">Delete</button>
     </mat-expansion-panel>
