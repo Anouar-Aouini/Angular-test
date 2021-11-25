@@ -16,18 +16,15 @@ export class PostServiceService {
   }
   setPost(post: any) {
     if (this.getPosts()) {
-      console.log(this.getPosts())
       let posts = [...this.getPosts(),post];
-    localStorage.setItem("posts",JSON.stringify(posts));
+      localStorage.setItem("posts",JSON.stringify(posts));
     } else {
       localStorage.setItem("posts",JSON.stringify([post]))
     }
-
   }
 
 
   updatePost(id: number, post: Post) {
-    console.log(post,id)
     let posts = this.getPosts().map((el: any, index: any) => +index === +id ? post : el);
     this.setPosts(posts);
   }

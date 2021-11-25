@@ -9,18 +9,23 @@ import { PostServiceService } from './../post-service.service';
   styleUrls: ['./update-post.component.css']
 })
 export class UpdatePostComponent implements OnInit {
-  public category: string = "Sport";
+
   constructor(public postService:PostServiceService,public router:Router, public route : ActivatedRoute) { }
-  public param:any;
+  public param: any={
+      id: this.route.snapshot.params["id"]
+    };
+
+
   ngOnInit(): void {
     this.param = {
       id: this.route.snapshot.params["id"]
     }
   }
-
+  public post?: any = this.postService.getPosts()[this.param.id];
+  public category: string = this.post.category;
     postForm = new FormGroup({
-    title: new FormControl("",[Validators.required]),
-    description: new FormControl("", [Validators.required]),
+    title: new FormControl(this.post.title,[Validators.required]),
+    description: new FormControl(this.post.description, [Validators.required]),
     })
 
     get title() {
