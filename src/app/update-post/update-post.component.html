@@ -1,0 +1,65 @@
+<button class="btn btn-primary" routerLink="/listposts">Back</button>
+<div class="container">
+  <h1>New Post:</h1>
+                              <label id="example-radio-group-label">Pick Category:</label>
+                             <mat-radio-group MatFormFieldControl
+                                aria-labelledby="example-radio-group-label"
+                                [(ngModel)]="category"
+                                >
+                             <mat-radio-button
+                                value="Sport"
+                                 >
+                                Sport
+                             </mat-radio-button>
+                             <mat-radio-button
+                             value="Technologies"
+                                 >
+                                Technologies
+                             </mat-radio-button>
+                             <mat-radio-button
+                             value="Economy"
+                                 >
+                                Economy
+                             </mat-radio-button>
+                             <mat-radio-button
+                             value="Society"
+                                 >
+                                Society
+                             </mat-radio-button>
+                            <mat-radio-button
+                             value="Culture"
+                                 >
+                                Culture
+                             </mat-radio-button>
+                             </mat-radio-group>
+  <form  [formGroup]="postForm"  (ngSubmit)="onSubmit()">
+    <div class="row">
+      <label > Title :  </label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="title"
+      placeholder="Enter title"
+    [class.is-invalid]="title?.invalid && title?.touched"
+     />
+      <small class="text-danger"
+      [class.d-none]="title?.valid || title?.untouched"
+      >Title is required</small>
+    </div>
+        <div class="row">
+      <label > Description :  </label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="description"
+      placeholder="Enter description"
+    [class.is-invalid]="description?.invalid && description?.touched"
+     />
+      <small class="text-danger"
+      [class.d-none]="description?.valid || description?.untouched"
+      >Description is required</small>
+    </div>
+
+<button class="btn btn-success" [disabled]="postForm.invalid">ADD POST</button>
+</form>
+</div>
