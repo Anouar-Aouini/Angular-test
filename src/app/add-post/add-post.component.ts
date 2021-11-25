@@ -16,12 +16,12 @@ export class AddPostComponent implements OnInit {
   }
 
     postForm = new FormGroup({
-    title: new FormControl("",[Validators.required,Validators.minLength(3)]),
-    description: new FormControl("", [Validators.required, Validators.required]),
+    title: new FormControl("",[Validators.required]),
+    description: new FormControl("",[Validators.required])
     })
 
     get title() {
-    return this.postForm.get('titre');
+    return this.postForm.get('title');
     }
 
    get description() {
